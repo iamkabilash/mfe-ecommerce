@@ -11,8 +11,14 @@ module.exports = {
       name: "cart",
       filename: "remoteEntry.js",
       exposes: {
-        "./CartShow": "./src/index",
+        "./CartShow": "./src/bootstrap",
       },
+      shared: {
+        faker: {
+          singleton: true,
+        },
+      },
+      // shared: ["faker"] // use this line instead of shared {}, if singleton warning not needed.
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
